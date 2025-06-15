@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多人猜数字游戏大厅</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container" id="lobby-page">
+        <header>
+            <h1><i class="fas fa-dice"></i> 多人猜数字游戏大厅</h1>
+            <p>与朋友一起挑战你的直觉和推理能力！</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="panel">
+                <h2><i class="fas fa-user"></i> 用户账户</h2>
+                
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="login">登录</button>
+                    <button class="tab-btn" data-tab="register">注册</button>
+                </div>
+                
+                <div class="tab-content active" id="login-tab">
+                    <form class="auth-form" id="login-form">
+                        <div class="form-group">
+                            <label for="login-email">邮箱</label>
+                            <input type="email" id="login-email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">密码</label>
+                            <input type="password" id="login-password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-sign-in-alt"></i> 登录
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="tab-content" id="register-tab">
+                    <form class="auth-form" id="register-form">
+                        <div class="form-group">
+                            <label for="register-username">用户名</label>
+                            <input type="text" id="register-username" placeholder="游戏昵称" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">邮箱</label>
+                            <input type="email" id="register-email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">密码</label>
+                            <input type="password" id="register-password" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-confirm">确认密码</label>
+                            <input type="password" id="register-confirm" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> 注册
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="user-info" id="user-info">
+                    <div class="user-details">
+                        <div class="avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-text">
+                            <h3 id="username-display">玩家</h3>
+                            <p id="email-display">user@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">游戏场次</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">胜利次数</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">总积分</div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-secondary" id="logout-btn" style="margin-top: 15px; width: 100%;">
+                        <i class="fas fa-sign-out-alt"></i> 退出登录
+                    </button>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <h2><i class="fas fa-gamepad"></i> 游戏大厅</h2>
+                
+                <div class="game-controls">
+                    <button class="btn btn-primary" id="create-room-btn">
+                        <i class="fas fa-plus"></i> 创建房间
+                    </button>
+                    <button class="btn btn-secondary" id="refresh-btn">
+                        <i class="fas fa-sync"></i> 刷新列表
+                    </button>
+                </div>
+                
+                <div class="room-list" id="room-list">
+                    <!-- 房间列表将由JS动态生成 -->
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>多人猜数字游戏 &copy; 2023</p>
+            <p>使用Node.js和WebSocket技术构建</p>
+        </footer>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/lobby.js"></script>
+</body>
+</html>

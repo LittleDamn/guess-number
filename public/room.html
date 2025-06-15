@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏房间 - 多人猜数字</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/room.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="room-page">
+        <div class="room-header">
+            <div>
+                <h1 class="room-title" id="room-title">休闲房间</h1>
+                <p id="room-details">房间ID: 12345 | 创建者: 玩家A</p>
+            </div>
+            <div class="room-status">
+                <div class="status-indicator" id="room-status-indicator"></div>
+                <span id="room-status-text">等待中</span>
+            </div>
+        </div>
+        
+        <button class="back-btn" id="back-to-lobby">
+            <i class="fas fa-arrow-left"></i> 返回大厅
+        </button>
+        
+        <div class="players-container" id="players-container">
+            <!-- 玩家卡片将由JS动态生成 -->
+        </div>
+        
+        <div class="game-container">
+            <div class="game-info">
+                <p>轮到 <strong id="current-player">你</strong> 猜数字了！</p>
+                <p>数字范围: <strong id="number-range">1 - 100</strong></p>
+                <p>剩余时间: <strong id="countdown">30秒</strong></p>
+            </div>
+            
+            <form class="guess-form" id="guess-form">
+                <input type="number" class="guess-input" min="1" max="100" placeholder="输入你的猜测" required id="guess-input">
+                <button type="submit" class="submit-btn">提交猜测</button>
+            </form>
+            
+            <div class="history-container">
+                <h3 class="history-title">游戏历史</h3>
+                <div id="game-history">
+                    <!-- 游戏历史记录将由JS动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/room.js"></script>
+</body>
+</html>
